@@ -7,7 +7,7 @@ class NotFound extends React.Component {
       <main className="notFound">
         <h1 className="notFound__404">404</h1>
         <h2 className="notFound__oups">
-          Oups! La page que vous demandez n'existe pas.
+          Oups! La page que vous demandez n'existe pas encore.
         </h2>
         <Link to="/" className="notFound__return">
           Retourner sur la page d'accueil
