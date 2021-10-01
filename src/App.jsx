@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
   * {
     font-family: 'Roboto', Helvetica, sans-serif;
     margin: 0;
+    padding: 0;
   }
   html {
     scroll-behavior: smooth;
@@ -66,9 +67,9 @@ const App = () => {
         <section>
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route exact path="/user/:id" component={Profil} />
-            <Route exact path="/reglages" component={NotFound} />
-            <Route exact path="/communaute" component={NotFound} />
+            <Route path="/user/:id?" component={Profil} />
+            <Route path="/reglages" component={NotFound} />
+            <Route path="/communaute" component={NotFound} />
             <Route component={NotFound} />
           </Switch>
         </section>

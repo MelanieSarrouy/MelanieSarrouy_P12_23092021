@@ -1,10 +1,5 @@
 import React from 'react'
-import {
-  USER_MAIN_DATA,
-  USER_ACTIVITY,
-  USER_AVERAGE_SESSIONS,
-  USER_PERFORMANCE,
-} from '../datas/mocked-datas.js'
+import { USER_MAIN_DATA } from '../datas/mocked-datas.js'
 import { useParams } from 'react-router-dom'
 import NotFound from './NotFound'
 import glucides from '../assets/carbs-icon.svg'
@@ -13,6 +8,7 @@ import lipides from '../assets/fat-icon.svg'
 import proteines from '../assets/protein-icon.svg'
 import styled from 'styled-components'
 import colors from '../utils/style/colors'
+import Activity from '../components/Activity.jsx'
 
 const Welcome = styled.h1`
   font-size: 3rem;
@@ -27,9 +23,9 @@ const FirstName = styled.span`
   color: ${colors.primary};
 `
 const Charts = styled.section`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  column-gap: 2rem;
   padding-top: 5rem;
 `
 const Feed = styled.li`
@@ -40,7 +36,7 @@ const Feed = styled.li`
   width: 16.15rem;
   background-color: #fbfbfb;
   border-radius: 0.35rem;
-  margin-bottom: 2.45rem
+  margin-bottom: 2.45rem;
 `
 const Icon = styled.img`
   width: 3.75rem;
@@ -52,7 +48,7 @@ const Quantity = styled.p`
   font-weight: 700;
   line-height: 1.5rem;
   color: ${colors.textDark};
-  padding-bottom: 0.2rem
+  padding-bottom: 0.2rem;
 `
 const Kind = styled.p`
   font-size: 0.9rem;
@@ -65,21 +61,19 @@ const Profil = () => {
   const param = useParams()
   const userId = parseInt(param.id)
   const user = USER_MAIN_DATA.find((element) => element.id === userId)
-  const { userInfos, keyData } = user
-  const activity = USER_ACTIVITY.find((element) => element.userId === userId)
-  const average = USER_AVERAGE_SESSIONS.find(
-    (element) => element.userId === userId
-  )
-  const performance = USER_PERFORMANCE.find(
-    (element) => element.userId === userId
-  )
-  console.log(activity)
-  console.log(average)
-  console.log(performance)
+  // const average = USER_AVERAGE_SESSIONS.find(
+  //   (element) => element.userId === userId
+  // )
+  // const performance = USER_PERFORMANCE.find(
+  //   (element) => element.userId === userId
+  // )
+
 
   if (user === undefined) {
     return <NotFound />
   } else {
+    const { userInfos, keyData } = user
+
     return (
       <Dashboard>
         <header>
@@ -90,13 +84,8 @@ const Profil = () => {
         </header>
         <Charts>
           <div>
-            <article>
-              <h2>Activité quotidienne</h2>
-            </article>
             <div>
-              <article>
-                <h2>Durée moyenne des sessions</h2>
-              </article>
+              <Activity id={userId}/>
               <article>
                 <h2 className="sr-only">Performances</h2>
               </article>
