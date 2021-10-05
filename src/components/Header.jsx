@@ -1,41 +1,29 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import logo from '../assets/logo.svg'
-import styled from 'styled-components'
-import colors from '../utils/style/colors'
+import burger from '../assets/hamburger-menu-icon.svg'
+import {
+  HeaderWrapper,
+  NavContainer,
+  HeaderLogo,
+  StyledLink,
+  BurgerContainer,
+  ImgBurger,
+} from '../styles/components/header'
 
-const HeaderWrapper = styled.header`
-  background-color: ${colors.backgroundDark};
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-`
-const NavContainer = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 1.75rem;
-  height: 5.7rem;
-`
-const HeaderLogo = styled.img`
-  height: 3.8rem;
-`
-const StyledLink = styled(NavLink)`
-  color: white;
-  font-size: 1.2rem;
-  font-weight: 500;
-  text-decoration: none;
-  padding-right: 2rem;
-  &.${(props) => props.activeClassName} {
-    color: ${colors.primary};
-  }
-`
 
 const Header = () => {
+  function handleClick(e) {
+    e.preventDefault()
+    console.log('test')
+  }
+
   return (
     <HeaderWrapper>
+      <Link to="/">
+        <HeaderLogo src={logo} alt="logo" />
+      </Link>
       <NavContainer>
-        <StyledLink exact to="/" activeClassName="something">
-          <HeaderLogo src={logo} alt="logo" />
-        </StyledLink>
         <StyledLink exact to="/" activeClassName="something">
           Accueil
         </StyledLink>
@@ -49,6 +37,10 @@ const Header = () => {
           Communauté
         </StyledLink>
       </NavContainer>
+      <BurgerContainer onClick={handleClick}>
+        <ImgBurger src={burger} alt="burger navigation" />
+        <div id="navBurger"></div>
+      </BurgerContainer>
     </HeaderWrapper>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { USER_AVERAGE_SESSIONS } from '../datas/mocked-datas.js'
-import { LineChart, XAxis, YAxis, Tooltip, Line } from 'recharts'
-import { AverageContainer, Title, TooltipStyle, Days } from '../utils/style/average.js'
+import { ResponsiveContainer, LineChart, XAxis, YAxis, Tooltip, Line } from 'recharts'
+import { AverageContainer, Title, TooltipStyle, Days } from '../styles/components/average'
 
 
 const convertToWeekDay = (day) => {
@@ -54,12 +54,13 @@ const Average = ({ id }) => {
   const days = data.map((el) => el.day)
 
   return (
+
     <AverageContainer>
       <Title>Durée moyenne des sessions</Title>
+      <ResponsiveContainer width="100%" height="100%">
+
       <LineChart
         data={data}
-        width={260}
-        height={263}
         margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
       >
         <XAxis
@@ -87,7 +88,7 @@ const Average = ({ id }) => {
             stroke: 'black',
             strokeOpacity: 0.1,
             strokeWidth: 70,
-            fill: 'rgba(255, 255, 255, 0.1)',
+            fill: 'rgba(255, 255, 255, 0.1)'
           }}
         />
         <Line
@@ -105,6 +106,8 @@ const Average = ({ id }) => {
           strokeWidth={2}
         />
       </LineChart>
+      </ResponsiveContainer>
+
       <Days>
         {days.map((day, index) => (
           <p key={index}>{convertToWeekDay(day)}</p>

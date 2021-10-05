@@ -1,19 +1,15 @@
 import React from 'react'
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis } from 'recharts'
+import {
+  ResponsiveContainer,
+  Radar,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+} from 'recharts'
 import { USER_PERFORMANCE } from '../datas/mocked-datas.js'
-import styled from 'styled-components'
-import colors from '../utils/style/colors'
+import colors from '../styles/bases/colors'
+import { RadarContainer } from '../styles/components/performance.js'
 
-const RadarContainer = styled.article`
-  background-color: ${colors.secondary};
-  border-radius: 0.35rem;
-  width: 16.2rem;
-  height: 263px;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
 const convertKind = (kind, array) => {
   const goodKind = array[kind]
   let frenchKind
@@ -54,33 +50,35 @@ const Performance = ({ id }) => {
   return (
     <RadarContainer>
       <h2 className="sr-only">Performances</h2>
-      <RadarChart
-        cx="50%"
-        cy="50%"
-        innerRadius="10%"
-        outerRadius="70%"
-        data={data}
-        width={258}
-        height={263}
-        startAngle={-150}
-        endAngle={210}
-      >
-        <PolarGrid radialLines={false}/>
-        <PolarAngleAxis
-          dataKey="kind"
-          tickLine={false}
-          tickFormatter={(kind) => convertKind(kind, kinds)}
-          tick={{ fontSize: 12 }}
-          stroke="white"
-          dy={5}          
-        />
-        <Radar
-          name="Performance"
-          dataKey="value"
-          fill={colors.primary}
-          fillOpacity={0.7}
-        />
-      </RadarChart>
+      <ResponsiveContainer width="100%" height={263}>
+        <RadarChart
+          cx="50%"
+          cy="50%"
+          innerRadius="10%"
+          outerRadius="70%"
+          data={data}
+          width={260}
+          height={263}
+          startAngle={-150}
+          endAngle={210}
+        >
+          <PolarGrid radialLines={false} />
+          <PolarAngleAxis
+            dataKey="kind"
+            tickLine={false}
+            tickFormatter={(kind) => convertKind(kind, kinds)}
+            tick={{ fontSize: 12 }}
+            stroke="white"
+            dy={5}
+          />
+          <Radar
+            name="Performance"
+            dataKey="value"
+            fill={colors.primary}
+            fillOpacity={0.7}
+          />
+        </RadarChart>
+      </ResponsiveContainer>
     </RadarContainer>
   )
 }

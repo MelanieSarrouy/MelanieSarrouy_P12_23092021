@@ -1,17 +1,21 @@
 import styled from 'styled-components'
-import colors from './colors'
+import colors from '../bases/colors'
 
 
 export const AverageContainer = styled.article`
   background-color: ${colors.primary};
   border-radius: 0.35rem;
-  width: 16.2rem;
+  width: 100%;
   height: 263px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
   position: relative;
+  @media (max-width: 1200px) {
+    margin-top: 2rem;
+  }
+
 `
 export const Title = styled.h2`
   color: white;
@@ -41,8 +45,9 @@ export const Days = styled.div`
   align-items: center;
   position: absolute;
   bottom: 1.2rem;
-  width: 230px;
+  width: 90%;
   color: white;
   opacity: 0.5;
   font-size: 0.75rem;
+
 `

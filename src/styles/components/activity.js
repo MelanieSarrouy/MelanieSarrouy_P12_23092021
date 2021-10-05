@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import colors from './colors'
+import colors from '../bases/colors'
 
 export const ActivityContainer = styled.article`
   background-color: #fbfbfb;

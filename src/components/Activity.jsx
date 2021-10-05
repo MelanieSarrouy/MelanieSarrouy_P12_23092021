@@ -1,5 +1,5 @@
 import React from 'react'
-import colors from '../utils/style/colors'
+import colors from '../styles/bases/colors'
 import {
   ActivityContainer,
   Legend,
@@ -7,7 +7,7 @@ import {
   Title,
   Element,
   TooltipStyle,
-} from '../utils/style/activity'
+} from '../styles/components/activity'
 import { USER_ACTIVITY } from '../datas/mocked-datas.js'
 import {
   BarChart,

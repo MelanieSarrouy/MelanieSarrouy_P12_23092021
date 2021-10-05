@@ -7,10 +7,9 @@ import {
   FeedsContainer,
   Feed,
   Icon,
-  FeedContainerText,
   Quantity,
   Kind,
-} from '../utils/style/feedTags'
+} from '../styles/components/feedTags'
 
 const FeedTags = ({ keyData }) => {
   return (
@@ -19,31 +18,31 @@ const FeedTags = ({ keyData }) => {
       <FeedsContainer>
         <Feed>
           <Icon src={calories} alt="icone calories" />
-          <FeedContainerText>
+          <div>
             <Quantity>{keyData.calorieCount}kCal</Quantity>
             <Kind>Calories</Kind>
-          </FeedContainerText>
+          </div>
         </Feed>
         <Feed>
           <Icon src={proteines} alt="icone proteines" />
-          <FeedContainerText>
+          <div>
             <Quantity>{keyData.proteinCount}g</Quantity>
             <Kind>Proteines</Kind>
-          </FeedContainerText>
+          </div>
         </Feed>
         <Feed>
           <Icon src={glucides} alt="icone glucides" />
-          <FeedContainerText>
+          <div>
             <Quantity>{keyData.carbohydrateCount}g</Quantity>
             <Kind>Glucides</Kind>
-          </FeedContainerText>
+          </div>
         </Feed>
         <Feed>
           <Icon src={lipides} alt="icone lipides" />
-          <FeedContainerText>
+          <div>
             <Quantity>{keyData.lipidCount}g</Quantity>
             <Kind>Lipides</Kind>
-          </FeedContainerText>
+          </div>
         </Feed>
       </FeedsContainer>
     </article>
