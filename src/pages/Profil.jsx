@@ -1,5 +1,5 @@
 import React from 'react'
-import { USER_MAIN_DATA } from '../datas/mocked-datas.js'
+// import { USER_MAIN_DATA } from '../datas/mocked-datas.js'
 import { useParams } from 'react-router-dom'
 import NotFound from './NotFound'
 import Activity from '../components/Activity.jsx'
@@ -15,16 +15,24 @@ import {
   ChartsContainer,
   LittleCharts,
 } from '../styles/pages/profil.js'
+import { useFetch } from '../services/API.js'
 
 const Profil = () => {
   const param = useParams()
   const userId = parseInt(param.id)
-  const user = USER_MAIN_DATA.find((element) => element.id === userId)
-
-  if (user === undefined) {
+  // const data = USER_MAIN_DATA.find((element) => element.id === userId)
+  const { data, isLoading, error } = useFetch(`${userId}`)
+  if (error) {
+    return <span>Il y a un problème user</span>
+  }
+  if (isLoading) {
+    return <span>...Is Loading...</span>
+  }
+  if (data === undefined) {
     return <NotFound />
   } else {
-    const { userInfos, keyData } = user
+    const userInfos = data.userInfos
+    const keyData = data.keyData
 
     return (
       <Page>

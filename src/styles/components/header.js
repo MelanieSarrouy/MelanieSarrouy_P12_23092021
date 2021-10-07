@@ -2,6 +2,27 @@ import styled from 'styled-components'
 import colors from '../bases/colors'
 import { NavLink } from 'react-router-dom'
 
+export const DivBurger = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+`
+export const DivLinksBurger = styled.div`
+background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  flex-direction: column;
+  ${'' /* justify-content: center; */}
+  align-items: flex-end;
+  position: absolute;
+  top: 4.2rem;
+  right: 0;
+  & > div {
+    padding: 2rem;
+  }
+  `
+
 
 export const HeaderWrapper = styled.header`
   background-color: ${colors.backgroundDark};
