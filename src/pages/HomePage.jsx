@@ -1,39 +1,30 @@
 import React from 'react'
 import logo from '../assets/logo.svg'
 import { Page } from '../styles/components/pages'
-import { Welcome } from '../styles/components/welcome'
 import {
-  FirstName,
   Logo,
-  LogoContainer,
   MainHomePage,
   ButtonsWrapper,
-  Title,
-  UserLink,
-  Name,
+  Title
 } from '../styles/pages/homepage'
+import HeaderSection from '../components/HeaderSection'
+import ButtonName from '../components/ButtonName'
+import { users } from '../datas/users'
 
 const HomePage = () => {
+  const title = 'Bienvenue sur le site'
+  const firstname = 'SportSee !'
+  const sentence = 'Le site de coaching sportif 🏃‍♂️'
   return (
     <Page>
-      <header>
-        <Welcome>
-          Bienvenue sur le site <FirstName>SportSee !</FirstName>
-        </Welcome>
-        <p>Le site de coaching sportif 🏃‍♂️</p>
-        <LogoContainer>
-          <Logo src={logo} alt="logo" />
-        </LogoContainer>
-      </header>
+      <HeaderSection title={title} firstname={firstname} sentence={sentence} />
+      <Logo src={logo} alt="logo" />
       <MainHomePage>
         <Title>Choisir un profil</Title>
         <ButtonsWrapper>
-          <UserLink to="/user/12">
-            <Name>Karl</Name>
-          </UserLink>
-          <UserLink to="/user/18">
-            <Name>Cecilia</Name>
-          </UserLink>
+          {users.map((user, index) => (
+            <ButtonName key={index} linkId={user.link} firstname={user.name} />
+          ))}
         </ButtonsWrapper>
       </MainHomePage>
     </Page>

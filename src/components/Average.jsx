@@ -1,5 +1,4 @@
 import React from 'react'
-// import { USER_AVERAGE_SESSIONS } from '../datas/mocked-datas.js'
 import {
   ResponsiveContainer,
   LineChart,
@@ -15,6 +14,7 @@ import {
   Days,
 } from '../styles/components/average'
 import { useFetch } from '../services/API'
+import { Err } from '../styles/pages/profil'
 
 
 const convertToWeekDay = (day) => {
@@ -61,7 +61,7 @@ const CustomTooltip = ({ active, payload }) => {
 const Average = ({ id }) => {
   const { data, isLoading, error } = useFetch(`${id}/average-sessions`)
   if (error) {
-    return <span>Il y a un problème average</span>
+    return <Err>Il y a un problème de chargement des données</Err>
   }
   if (isLoading) {
     return <span>...Is Loading...</span>
@@ -121,7 +121,6 @@ const Average = ({ id }) => {
             />
           </LineChart>
         </ResponsiveContainer>
-
         <Days>
           {days.map((day, index) => (
             <p key={index}>{convertToWeekDay(day)}</p>

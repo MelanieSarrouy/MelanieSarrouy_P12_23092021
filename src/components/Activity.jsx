@@ -1,12 +1,11 @@
 import React from 'react'
-// import { USER_ACTIVITY } from '../datas/mocked-datas.js'
 import colors from '../styles/bases/colors'
+
 import {
   ActivityContainer,
   Legend,
   Keys,
   Title,
-  Element,
   TooltipStyle,
 } from '../styles/components/activity'
 import {
@@ -19,6 +18,8 @@ import {
   ResponsiveContainer,
 } from 'recharts'
 import { useFetch } from '../services/API'
+import ElementLegend from './ElementLegend'
+import { Err } from '../styles/pages/profil'
 
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
@@ -35,14 +36,13 @@ const CustomTooltip = ({ active, payload }) => {
 const Activity = ({ id }) => {
   const { data, isLoading, error } = useFetch(`${id}/activity`)
   if (error) {
-    return <span>Il y a un problème activity</span>
+    return <Err>Il y a un problème de chargement des données</Err>
   }
   if (isLoading) {
     return <span>...Is Loading...</span>
   } else {
     const sessions = data.sessions
     const datas = sessions.slice(-10)
-    const days = datas.map((el) => el.day)
     const kilograms = datas.map((el) => el.kilogram)
     const minWeight = Math.min(...kilograms)
     const calories = datas.map((el) => el.calories)
@@ -53,18 +53,11 @@ const Activity = ({ id }) => {
         <Legend>
           <Title>Activité quotidienne</Title>
           <Keys>
-            <Element>
-              <svg width="30" height="24">
-                <circle cx="15" cy="12" r="4" fill={colors.textDark} />
-              </svg>
-              <p>Poids (kg)</p>
-            </Element>
-            <Element>
-              <svg width="30" height="24">
-                <circle cx="15" cy="12" r="4" fill={colors.primary} />
-              </svg>
-              <p>Calories brûlées (kCal)</p>
-            </Element>
+            <ElementLegend color={colors.textDark} content={'Poids (kg)'} />
+            <ElementLegend
+              color={colors.primary}
+              content={'Calories brûlées (kCal)'}
+            />
           </Keys>
         </Legend>
         <ResponsiveContainer width="100%" height={175}>
@@ -76,7 +69,7 @@ const Activity = ({ id }) => {
             />
             <XAxis
               dataKey="day"
-              tickFormatter={(day) => days.indexOf(day) + 1}
+              tickFormatter={(day) => parseInt(day.slice(-2))}
               tickLine={false}
               axisLine={{ color: '#dedede' }}
               dy={10}

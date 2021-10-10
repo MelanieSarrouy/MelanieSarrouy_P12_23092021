@@ -2,27 +2,6 @@ import styled from 'styled-components'
 import colors from '../bases/colors'
 import { NavLink } from 'react-router-dom'
 
-export const DivBurger = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-end;
-  position: relative;
-`
-export const DivLinksBurger = styled.div`
-background-color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  flex-direction: column;
-  ${'' /* justify-content: center; */}
-  align-items: flex-end;
-  position: absolute;
-  top: 4.2rem;
-  right: 0;
-  & > div {
-    padding: 2rem;
-  }
-  `
-
 
 export const HeaderWrapper = styled.header`
   background-color: ${colors.backgroundDark};
@@ -38,7 +17,7 @@ export const NavContainer = styled.nav`
   align-items: center;
   padding: 0 1.75rem;
   height: 5.7rem;
-  @media (max-width: 1024px) {
+  @media (max-width: 800px) {
     display: none;
   }
 `
@@ -56,22 +35,8 @@ export const StyledLink = styled(NavLink)`
   font-size: 1.2rem;
   font-weight: 500;
   text-decoration: none;
-  padding-right: 2rem;
+  padding: 0rem 2rem;
   &.${(props) => props.activeClassName} {
     color: ${colors.primary};
   }
-`
-export const BurgerContainer = styled.div`
-  display: none;
-  @media (max-width: 1024px) {
-    height: 5.7rem;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-  }
-`
-export const ImgBurger = styled.img`
-  height: 2.8rem;
-  width: auto;
-  padding: 0 1.75rem;
 `

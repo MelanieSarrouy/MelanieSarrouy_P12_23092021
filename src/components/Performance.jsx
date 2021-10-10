@@ -1,5 +1,4 @@
 import React from 'react'
-// import { USER_PERFORMANCE } from '../datas/mocked-datas.js'
 import {
   ResponsiveContainer,
   Radar,
@@ -10,6 +9,7 @@ import {
 import colors from '../styles/bases/colors'
 import { RadarContainer } from '../styles/components/performance.js'
 import { useFetch } from '../services/API'
+import { Err } from '../styles/pages/profil'
 
 const convertKind = (kind, array) => {
   const goodKind = array[kind]
@@ -43,7 +43,7 @@ const convertKind = (kind, array) => {
 const Performance = ({ id }) => {
   const { data, isLoading, error } = useFetch(`${id}/performance`)
   if (error) {
-    return <span>Il y a un problème performance</span>
+    return <Err>Il y a un problème de chargement des données</Err>
   }
   if (isLoading) {
     return <span>...Is Loading...</span>

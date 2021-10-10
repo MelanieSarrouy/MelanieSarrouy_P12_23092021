@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-
+import colors from '../bases/colors'
 
 export const Welcome = styled.h1`
   font-size: 3rem;
@@ -11,4 +11,7 @@ export const Welcome = styled.h1`
     line-height: 2.5rem;
     padding-bottom: 2rem;
   }
+`
+export const FirstName = styled.span`
+  color: ${colors.primary};
 `

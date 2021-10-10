@@ -23,19 +23,10 @@ export const Title = styled.h2`
   line-height: 1.5rem;
   color: #20253a;
 `
-export const Element = styled.div`
-  font-size: 0.85rem;
-  font-weight: 400;
-  line-height: 1.5rem;
-  color: ${colors.textLight};
-  padding-left: 1.5rem;
-  display: flex;
-  justify-content: flex-end;
-`
 export const TooltipStyle = styled.div`
   background-color: ${colors.primary};
   color: white;
-  font-size: 0.5rem;
+  font-size: 12px;
   font-weight: 500;
   line-height: 1.5rem;
   display: flex;

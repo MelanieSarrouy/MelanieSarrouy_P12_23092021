@@ -31,7 +31,7 @@ export const Title = styled.h2`
 export const TooltipStyle = styled.div`
   background-color: white;
   color: black;
-  font-size: 0.5rem;
+  font-size: 12px;
   font-weight: 500;
   display: flex;
   align-items: center;

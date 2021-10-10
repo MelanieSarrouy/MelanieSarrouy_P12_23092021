@@ -1,5 +1,4 @@
 import React from 'react'
-// import { USER_MAIN_DATA } from '../datas/mocked-datas.js'
 import {
   ResponsiveContainer,
   RadialBarChart,
@@ -14,12 +13,13 @@ import {
   BigResult,
 } from '../styles/components/score.js'
 import { useFetch } from '../services/API.js'
+import { Err } from '../styles/pages/profil.js'
 
 
 const Score = ({ id }) => {
   const { data, isLoading, error } = useFetch(`${id}`)
   if (error) {
-    return <span>Il y a un problème activity</span>
+    return <Err>Il y a un problème de chargement des données</Err>
   }
   if (isLoading) {
     return <span>...Is Loading...</span>
