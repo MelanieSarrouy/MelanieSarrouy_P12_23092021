@@ -1,7 +1,19 @@
+// IMPORTS // ______________________________________________________________
+
 import React from 'react'
-import NotFound404 from '../assets/404.png'
-import { Page } from '../styles/components/pages'
+// styles imports
+import { Page } from '../styles/bases/pages'
 import { Main404Page, Img404, LinkReturn, Title404 } from '../styles/pages/notFound'
+// datas imports
+import NotFound404 from '../assets/404.png'
+
+// JSX // _________________________________________________________________
+
+/**
+ * NotFound's component to display 'not found' page
+ * @name NotFound
+ * @returns {JSX}
+ */
 
 const NotFound = () => {
   return (
@@ -18,5 +30,7 @@ const NotFound = () => {
     </Page>
   )
 }
+
+// EXPORT // ______________________________________________________________
 
 export default NotFound

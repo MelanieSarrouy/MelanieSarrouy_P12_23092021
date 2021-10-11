@@ -22,5 +22,4 @@ export const Icon = styled.img`
   @media (max-width: 1024px) {
     width: 2.5rem;
   }
-
 `

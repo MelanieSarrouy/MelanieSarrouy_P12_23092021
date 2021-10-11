@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import colors from '../bases/colors'
 
 export const Main404Page = styled.main`
-  ${'' /* padding: 3.4rem 6.8rem; */}
   display: flex;
   flex-direction: column;
   justify-content: center;

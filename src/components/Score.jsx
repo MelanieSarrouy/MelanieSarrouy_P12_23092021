@@ -1,10 +1,19 @@
+// IMPORTS // ______________________________________________________________
+
 import React from 'react'
+import PropTypes from 'prop-types'
+// Recharts components imports
 import {
   ResponsiveContainer,
   RadialBarChart,
   PolarAngleAxis,
   RadialBar,
 } from 'recharts'
+// components imports
+import Loader from './Loader.jsx'
+// utils imports
+import { convertScore } from '../services/utils/convertScore'
+// styles imports
 import colors from '../styles/bases/colors.js'
 import {
   ScoreChartContainer,
@@ -12,22 +21,31 @@ import {
   Result,
   BigResult,
 } from '../styles/components/score.js'
+import { Err } from '../styles/bases/error'
+// imports API's datas fetched and modeling classes
 import { useFetch } from '../services/API.js'
-import { Err } from '../styles/pages/profil.js'
+import { userMainData } from '../services/classModels/userMainData.js'
 
+// JSX // _________________________________________________________________
+
+/**
+ * Score's component to display score chart
+ * @name Score
+ * @param {string} id user id
+ * @returns {JSX}
+ */
 
 const Score = ({ id }) => {
   const { data, isLoading, error } = useFetch(`${id}`)
   if (error) {
-    return <Err>Il y a un problème de chargement des données</Err>
+    return <Err>Oups, il y a un problème de chargement des données</Err>
   }
   if (isLoading) {
-    return <span>...Is Loading...</span>
+    return <Loader />
   } else {
-    let score
-    data.todayScore === undefined
-      ? (score = data.score)
-      : (score = data.todayScore)
+    const mainDatas = new userMainData(data)
+    const todayScore = mainDatas.todayScore
+    const score = convertScore(todayScore, mainDatas)
     const newData = [
       {
         todayScore: score,
@@ -68,5 +86,13 @@ const Score = ({ id }) => {
     )
   }
 }
+
+// PROPTYPES // ___________________________________________________________
+
+Score.propTypes = {
+  id: PropTypes.number.isRequired,
+}
+
+// EXPORT // ______________________________________________________________
 
 export default Score

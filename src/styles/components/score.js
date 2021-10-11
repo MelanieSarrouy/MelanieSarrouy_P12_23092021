@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import colors from '../bases/colors.js'
 
-
 export const ScoreChartContainer = styled.article`
   background-color: 'white';
   border-radius: 0.35rem;
@@ -15,7 +14,6 @@ export const ScoreChartContainer = styled.article`
   @media (max-width: 1200px) {
     margin-top: 2rem;
   }
-
 `
 export const Title = styled.h2`
   color: '#20253A';

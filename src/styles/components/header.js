@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import colors from '../bases/colors'
 import { NavLink } from 'react-router-dom'
 
-
 export const HeaderWrapper = styled.header`
   background-color: ${colors.backgroundDark};
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);

@@ -2,7 +2,6 @@ import styled from 'styled-components'
 import colors from '../bases/colors'
 import { Link } from 'react-router-dom'
 
-
 export const UserLink = styled(Link)`
   display: flex;
   justify-content: center;

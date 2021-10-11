@@ -14,6 +14,7 @@ import {
 } from 'recharts'
 // components imports
 import ElementLegend from './ElementLegend'
+import Loader from './Loader'
 // styles imports
 import colors from '../styles/bases/colors'
 import {
@@ -23,18 +24,19 @@ import {
   Title,
   TooltipStyle,
 } from '../styles/components/activity'
-import { Err } from '../styles/pages/profil'
-// fetched API's datas imports
+import { Err } from '../styles/bases/error'
+// imports API's datas fetched and modeling classes
 import { useFetch } from '../services/API'
+import { userActivity } from '../services/classModels/userActivity'
 
 // JSX // _________________________________________________________________
 
 /**
  * CustomTooltip's componant to display and fill tooltip
  * @name CustomTooltip
- * @param {Boolean} param0 Tooltip is active (if is hover) or not
- * @param {array} param1 datas to display in tooltip
- * @returns {JSX}
+ * @param {Boolean} active Tooltip is active (if is hover) or not
+ * @param {array} payload datas to display in tooltip
+ * @returns {?JSX}
  */
 
 const CustomTooltip = ({ active, payload }) => {
@@ -52,23 +54,24 @@ const CustomTooltip = ({ active, payload }) => {
 /**
  * Activity's component Acivity to display activity chart
  * @name Activity
- * @param {number} param0 user id
+ * @param {number} id user id
  * @returns {JSX}
  */
 
 const Activity = ({ id }) => {
   const { data, isLoading, error } = useFetch(`${id}/activity`)
   if (error) {
-    return <Err>Il y a un problème de chargement des données</Err>
+    return <Err>Oups, il y a un problème de chargement des données</Err>
   }
   if (isLoading) {
-    return <span>...Is Loading...</span>
+    return <Loader />
   } else {
-    const sessions = data.sessions
-    const datas = sessions.slice(-10)
-    const kilograms = datas.map((el) => el.kilogram)
+    const activityDatas = new userActivity(data)
+    const datas = activityDatas.sessions
+    const last10sessions = datas.slice(-10)
+    const kilograms = last10sessions.map((el) => el.kilogram)
     const minWeight = Math.min(...kilograms)
-    const calories = datas.map((el) => el.calories)
+    const calories = last10sessions.map((el) => el.calories)
     const maxCal = Math.max(...calories)
 
     return (
@@ -84,7 +87,7 @@ const Activity = ({ id }) => {
           </Keys>
         </Legend>
         <ResponsiveContainer width="100%" height={175}>
-          <BarChart data={datas} barGap="12%">
+          <BarChart data={last10sessions} barGap="12%">
             <CartesianGrid
               strokeDasharray="2 2"
               stroke="#dedede"

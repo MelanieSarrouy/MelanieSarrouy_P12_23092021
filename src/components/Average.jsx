@@ -11,6 +11,10 @@ import {
   Tooltip,
   Line,
 } from 'recharts'
+// components imports
+import Loader from './Loader'
+// utils imports
+import { convertToWeekDay } from '../services/utils/convertToWeekDay'
 // styles imports
 import {
   AverageContainer,
@@ -18,57 +22,19 @@ import {
   TooltipStyle,
   Days,
 } from '../styles/components/average'
-import { Err } from '../styles/pages/profil'
-// fetched API's datas imports
+import { Err } from '../styles/bases/error'
+// imports API's datas fetched and modeling classes
 import { useFetch } from '../services/API'
-
-//______________________________________________________________________
-
-/**
- * Change xAxis value
- * @param {number} day data fetched
- * @returns {string} value displayed
- */
-
-const convertToWeekDay = (day) => {
-  let theDay
-  switch (day) {
-    case 1:
-      theDay = 'L'
-      break
-    case 2:
-      theDay = 'M'
-      break
-    case 3:
-      theDay = 'M'
-      break
-    case 4:
-      theDay = 'J'
-      break
-    case 5:
-      theDay = 'V'
-      break
-    case 6:
-      theDay = 'S'
-      break
-    case 7:
-      theDay = 'D'
-      break
-    default:
-      theDay = ''
-      break
-  }
-  return theDay
-}
+import { userAverageSessions } from '../services/classModels/userAverageSessions'
 
 // JSX // _________________________________________________________________
 
 /**
  * CustomTooltip's component to display and fill tooltip
  * @name CustomTooltip
- * @param {Boolean} param0 Tooltip is active (if is hover) or not
- * @param {array} param1 data to display in tooltip
- * @returns {JSX}
+ * @param {Boolean} active Tooltip is active (if is hover) or not
+ * @param {array} payload data to display in tooltip
+ * @returns {?JSX}
  */
 
 const CustomTooltip = ({ active, payload }) => {
@@ -85,19 +51,20 @@ const CustomTooltip = ({ active, payload }) => {
 /**
  * Average's component to display average sessions length chart
  * @name Average
- * @param {number} param0 user id
+ * @param {number} id user id
  * @returns {JSX}
  */
 
 const Average = ({ id }) => {
   const { data, isLoading, error } = useFetch(`${id}/average-sessions`)
   if (error) {
-    return <Err>Il y a un problème de chargement des données</Err>
+    return <Err>Oups, il y a un problème de chargement des données</Err>
   }
   if (isLoading) {
-    return <span>...Is Loading...</span>
+    return <Loader />
   } else {
-    const datas = data.sessions
+    const averageSessionsDatas = new userAverageSessions(data)
+    const datas = averageSessionsDatas.sessions
     const days = datas.map((el) => el.day)
 
     return (

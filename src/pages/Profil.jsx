@@ -1,37 +1,48 @@
+// IMPORTS // ______________________________________________________________
+
 import React from 'react'
 import { useParams } from 'react-router-dom'
-import NotFound from './NotFound'
+// components imports
 import Activity from '../components/Activity.jsx'
-import FeedTags from '../components/FeedTags.jsx'
+import NutrientsTags from '../components/NutrientsTags.jsx'
 import Average from '../components/Average.jsx'
 import Performance from '../components/Performance.jsx'
 import Score from '../components/Score.jsx'
 import HeaderSection from '../components/HeaderSection'
-import { Page } from '../styles/components/pages'
+import Loader from '../components/Loader.jsx'
+// styles imports
+import { Page } from '../styles/bases/pages'
 import {
   Charts,
   ChartsContainer,
-  LittleCharts,
-  Err
+  LittleCharts
 } from '../styles/pages/profil.js'
+import { Err } from '../styles/bases/error'
+// imports API's datas fetched and modeling classes
 import { useFetch } from '../services/API.js'
+import { userMainData } from '../services/classModels/userMainData.js'
+
+// JSX // _________________________________________________________________
+
+/**
+ * Profils's component to display profil page 
+ * @name Profil
+ * @returns {JSX}
+ */
 
 const Profil = () => {
   const param = useParams()
   const userId = parseInt(param.id)
   const { data, isLoading, error } = useFetch(`${userId}`)
   if (error) {
-    return <Err>Il y a un problème d'authentification de l'utilisateur</Err>
+    return <Err>Oups, il y a un problème d'authentification de l'utilisateur</Err>
   }
   if (isLoading) {
-    return <span>...Is Loading...</span>
-  }
-  if (data === undefined) {
-    return <NotFound />
+    return <Loader />
   } else {
-    const userInfos = data.userInfos
-    const keyData = data.keyData
-
+    const mainDatas = new userMainData(data)
+    const userInfos = mainDatas.userInfos
+    const keyData = mainDatas.keyData
     const title = 'Bonjour'
     const firstname = userInfos.firstName
     const sentence = 'Félicitation ! Vous avez explosé vos objectifs hier 👏'
@@ -48,11 +59,13 @@ const Profil = () => {
               <Score id={userId} />
             </LittleCharts>
           </ChartsContainer>
-          <FeedTags keyData={keyData} />
+          <NutrientsTags keyData={keyData} />
         </Charts>
       </Page>
     )
   }
 }
+
+// EXPORT // ______________________________________________________________
 
 export default Profil

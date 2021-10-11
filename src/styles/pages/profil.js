@@ -1,19 +1,5 @@
 import styled from 'styled-components'
-import colors from '../bases/colors'
 
-
-export const Err = styled.div`
-  height: 12rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 2rem;
-  font-weight: 2rem;
-  color: ${colors.primary}
-`
-export const FirstName = styled.span`
-  color: ${colors.primary};
-`
 export const Charts = styled.section`
   display: grid;
   grid-template-columns: 75% 25%;
@@ -23,7 +9,6 @@ export const Charts = styled.section`
   @media (max-width: 1360px) {
     column-gap: 1rem;
   }
-
   @media (max-width: 1200px) {
     display: flex;
     flex-direction: column;
@@ -42,7 +27,6 @@ export const ChartsContainer = styled.div`
     height: auto;
   }
 `
-
 export const LittleCharts = styled.div`
   display: flex;
   column-gap: 1rem;

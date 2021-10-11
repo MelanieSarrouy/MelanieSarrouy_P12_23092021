@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import colors from '../bases/colors'
 
-
 export const RadarContainer = styled.article`
   background-color: ${colors.secondary};
   border-radius: 0.35rem;

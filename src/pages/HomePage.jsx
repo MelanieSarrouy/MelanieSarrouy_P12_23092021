@@ -1,15 +1,28 @@
+// IMPORTS // ______________________________________________________________
+
 import React from 'react'
-import logo from '../assets/logo.svg'
-import { Page } from '../styles/components/pages'
+// components imports
+import HeaderSection from '../components/HeaderSection'
+import ButtonName from '../components/ButtonName'
+// styles imports
+import { Page } from '../styles/bases/pages'
 import {
   Logo,
   MainHomePage,
   ButtonsWrapper,
   Title
 } from '../styles/pages/homepage'
-import HeaderSection from '../components/HeaderSection'
-import ButtonName from '../components/ButtonName'
+// datas imports
+import logo from '../assets/logo.svg'
 import { users } from '../datas/users'
+
+// JSX // _________________________________________________________________
+
+/**
+ * HomePage's component to display homepage
+ * @name HomePage
+ * @returns {JSX}
+ */
 
 const HomePage = () => {
   const title = 'Bienvenue sur le site'
@@ -30,5 +43,7 @@ const HomePage = () => {
     </Page>
   )
 }
+
+// EXPORT // ______________________________________________________________
 
 export default HomePage

@@ -10,8 +10,8 @@ import { Element } from '../styles/components/elementLegend'
 /**
  * ElementLegend's component to display activity chart legend
  * @name ElementLegend
- * @param {string} param0 legend's value
- * @param {string} param1 legend's color
+ * @param {string} content legend's value
+ * @param {string} color legend's color
  * @returns {JSX}
  */
 const ElementLegend = ({ content, color }) => {

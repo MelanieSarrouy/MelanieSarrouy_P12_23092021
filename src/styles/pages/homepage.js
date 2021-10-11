@@ -8,7 +8,6 @@ export const Logo = styled.img`
   @media (max-width: 1024px) {
     width: 8rem;
     padding: 2rem 0;
-
   }
 `
 export const MainHomePage = styled.main`

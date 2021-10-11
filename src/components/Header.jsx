@@ -1,17 +1,24 @@
+// IMPORTS // ______________________________________________________________
+
 import React from 'react'
 import { Link } from 'react-router-dom'
-import logo from '../assets/logo.svg'
+// components imports
+import NavBurger from './NavBurger'
+// styles imports
 import {
   HeaderWrapper,
   NavContainer,
   HeaderLogo,
   StyledLink
 } from '../styles/components/header'
-import NavBurger from './NavBurger'
+// datas imports
+import logo from '../assets/logo.svg'
 
+// JSX // _________________________________________________________________
 
 /**
- * Component Header with main navigation
+ * Header's componant with main navigation
+ * @name Header
  * @returns {JSX}
  */
 
@@ -40,5 +47,7 @@ const Header = () => {
     </HeaderWrapper>
   )
 }
+
+// EXPORT // ______________________________________________________________
 
 export default Header

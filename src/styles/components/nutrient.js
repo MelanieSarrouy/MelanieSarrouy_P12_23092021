@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import colors from '../bases/colors'
 
-export const FeedElement = styled.li`
+export const NutrientElement = styled.li`
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -14,7 +14,6 @@ export const FeedElement = styled.li`
   @media (max-width: 1200px) {
     margin-top: 2rem;
   }
-
 `
 export const Icon = styled.img`
   width: 3.75rem;
@@ -31,7 +30,6 @@ export const Quantity = styled.p`
   @media (max-width: 1360px) {
     font-size: 1rem;
   }
-
 `
 export const Kind = styled.p`
   font-size: 0.9rem;
@@ -39,6 +37,4 @@ export const Kind = styled.p`
   line-height: 1.5rem;
   color: ${colors.textLight};
   padding-right: 1.5rem;
-
-
 `

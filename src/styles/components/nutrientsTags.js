@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const FeedsContainer = styled.ul`
+export const NutrientsContainer = styled.ul`
   display: flex;
   flex-direction: column;
   justify-content: space-between;

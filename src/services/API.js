@@ -1,7 +1,19 @@
+// IMPORTS // ______________________________________________________________
+
 import axios from 'axios'
 import { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
+
+
+// HOOK // ______________________________________________________________
 
 axios.defaults.baseURL = 'http://localhost:3000/user/'
+
+/**
+ * personnalized hook with Api's url in params for storing data fetched
+ * @param {string} url 
+ * @returns {object}
+ */
 
 export function useFetch(url) {
   const [data, setData] = useState({})
@@ -18,7 +30,6 @@ export function useFetch(url) {
         setData(data)
       } catch (err) {
         console.log(err)
-
         setError(true)
       } finally {
         setLoading(false)
@@ -28,4 +39,10 @@ export function useFetch(url) {
   }, [url])
 
   return { data, isLoading, error }
+}
+
+// PROPTYPES // ___________________________________________________________
+
+useFetch.propTypes = {
+  url: PropTypes.string
 }

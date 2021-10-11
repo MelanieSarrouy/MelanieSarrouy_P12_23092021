@@ -1,14 +1,28 @@
+// IMPORTS // ______________________________________________________________
+
 import React, { useState } from 'react'
-import burger from '../assets/hamburger-menu-icon.svg'
+// components imports
+import { StyledLink } from '../styles/components/header'
+// styles imports
 import {
   BurgerContainer,
   ImgBurger,
   DivBurger,
   DivLinksBurger,
 } from '../styles/components/navBurger'
-import { StyledLink } from '../styles/components/header'
+// datas imports
+import burger from '../assets/hamburger-menu-icon.svg'
+
+// JSX // _________________________________________________________________
+
+/**
+ * NavBurger's component to display responsive navigation
+ * @name NavBurger
+ * @returns {JSX}
+ */
 
 const NavBurger = () => {
+
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -37,5 +51,7 @@ const NavBurger = () => {
     </BurgerContainer>
   )
 }
+
+// EXPORT // ______________________________________________________________
 
 export default NavBurger

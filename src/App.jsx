@@ -1,12 +1,24 @@
+// IMPORTS // ______________________________________________________________
+
 import React from 'react'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
+// components imports
 import Aside from './components/Aside'
 import Header from './components/Header'
 import NotFound from './pages/NotFound'
 import Profil from './pages/Profil'
 import HomePage from './pages/HomePage'
+// styles imports
 import { GlobalStyle } from './styles/bases/bases'
 import { MainWrapper } from './styles/components/app'
+
+// JSX // _________________________________________________________________
+
+/**
+ * App's component to manage various routes 
+ * and display corresponding pages components  
+ * @returns {JSX}
+ */
 
 const App = () => {
   return (
@@ -28,4 +40,7 @@ const App = () => {
     </BrowserRouter>
   )
 }
+
+// EXPORT // ______________________________________________________________
+
 export default App

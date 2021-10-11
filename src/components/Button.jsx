@@ -10,8 +10,8 @@ import { ActivityLink, Icon } from '../styles/components/button'
 /**
  * Button's component to display sports icons on secondary navigation
  * @name Button
- * @param {string} param0 to select sport name
- * @param {string} param1 to display sport icon
+ * @param {string} name to select sport name
+ * @param {string} cover to display sport icon
  * @returns {JSX}
  */
 
