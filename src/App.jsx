@@ -4,19 +4,10 @@ import Aside from './components/Aside'
 import Header from './components/Header'
 import NotFound from './pages/NotFound'
 import Profil from './pages/Profil'
-import styled from 'styled-components'
 import HomePage from './pages/HomePage'
 import { GlobalStyle } from './styles/bases/bases'
+import { MainWrapper } from './styles/components/app'
 
-const MainWrapper = styled.main`
-  display: grid;
-  grid-template-columns: 7.3rem auto;
-  @media (max-width: 1024px) {
-    display: flex;
-    flex-direction: column-reverse;
-  }
-
-`
 const App = () => {
   return (
     <BrowserRouter>

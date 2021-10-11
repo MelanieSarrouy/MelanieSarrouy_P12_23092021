@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import glucides from '../assets/carbs-icon.svg'
 import calories from '../assets/calories-icon.svg'
 import lipides from '../assets/fat-icon.svg'
@@ -34,6 +35,10 @@ const FeedTags = ({ keyData }) => {
       </FeedsContainer>
     </article>
   )
+}
+
+FeedTags.propTypes = {
+  keyData: PropTypes.object.isRequired,
 }
 
 export default FeedTags

@@ -1,4 +1,8 @@
+// IMPORTS // ______________________________________________________________
+
 import React from 'react'
+import PropTypes from 'prop-types'
+// Recharts components imports
 import {
   ResponsiveContainer,
   LineChart,
@@ -7,15 +11,24 @@ import {
   Tooltip,
   Line,
 } from 'recharts'
+// styles imports
 import {
   AverageContainer,
   Title,
   TooltipStyle,
   Days,
 } from '../styles/components/average'
-import { useFetch } from '../services/API'
 import { Err } from '../styles/pages/profil'
+// fetched API's datas imports
+import { useFetch } from '../services/API'
 
+//______________________________________________________________________
+
+/**
+ * Change xAxis value
+ * @param {number} day data fetched
+ * @returns {string} value displayed
+ */
 
 const convertToWeekDay = (day) => {
   let theDay
@@ -47,6 +60,17 @@ const convertToWeekDay = (day) => {
   }
   return theDay
 }
+
+// JSX // _________________________________________________________________
+
+/**
+ * CustomTooltip's component to display and fill tooltip
+ * @name CustomTooltip
+ * @param {Boolean} param0 Tooltip is active (if is hover) or not
+ * @param {array} param1 data to display in tooltip
+ * @returns {JSX}
+ */
+
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
@@ -57,6 +81,13 @@ const CustomTooltip = ({ active, payload }) => {
   }
   return null
 }
+
+/**
+ * Average's component to display average sessions length chart
+ * @name Average
+ * @param {number} param0 user id
+ * @returns {JSX}
+ */
 
 const Average = ({ id }) => {
   const { data, isLoading, error } = useFetch(`${id}/average-sessions`)
@@ -130,5 +161,13 @@ const Average = ({ id }) => {
     )
   }
 }
+
+// PROPTYPES // ___________________________________________________________
+
+Average.propTypes = {
+  id: PropTypes.number.isRequired
+}
+
+// EXPORT // ______________________________________________________________
 
 export default Average

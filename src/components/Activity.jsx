@@ -1,13 +1,8 @@
-import React from 'react'
-import colors from '../styles/bases/colors'
+// IMPORTS // ______________________________________________________________
 
-import {
-  ActivityContainer,
-  Legend,
-  Keys,
-  Title,
-  TooltipStyle,
-} from '../styles/components/activity'
+import React from 'react'
+import PropTypes from 'prop-types'
+// Recharts components imports
 import {
   BarChart,
   CartesianGrid,
@@ -17,9 +12,30 @@ import {
   Bar,
   ResponsiveContainer,
 } from 'recharts'
-import { useFetch } from '../services/API'
+// components imports
 import ElementLegend from './ElementLegend'
+// styles imports
+import colors from '../styles/bases/colors'
+import {
+  ActivityContainer,
+  Legend,
+  Keys,
+  Title,
+  TooltipStyle,
+} from '../styles/components/activity'
 import { Err } from '../styles/pages/profil'
+// fetched API's datas imports
+import { useFetch } from '../services/API'
+
+// JSX // _________________________________________________________________
+
+/**
+ * CustomTooltip's componant to display and fill tooltip
+ * @name CustomTooltip
+ * @param {Boolean} param0 Tooltip is active (if is hover) or not
+ * @param {array} param1 datas to display in tooltip
+ * @returns {JSX}
+ */
 
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
@@ -32,6 +48,13 @@ const CustomTooltip = ({ active, payload }) => {
   }
   return null
 }
+
+/**
+ * Activity's component Acivity to display activity chart
+ * @name Activity
+ * @param {number} param0 user id
+ * @returns {JSX}
+ */
 
 const Activity = ({ id }) => {
   const { data, isLoading, error } = useFetch(`${id}/activity`)
@@ -121,5 +144,18 @@ const Activity = ({ id }) => {
     )
   }
 }
+
+// PROPTYPES // ___________________________________________________________
+
+CustomTooltip.propTypes = {
+  active: PropTypes.bool,
+  payload: PropTypes.array,
+}
+
+Activity.propTypes = {
+  id: PropTypes.number.isRequired,
+}
+
+// EXPORT // ______________________________________________________________
 
 export default Activity

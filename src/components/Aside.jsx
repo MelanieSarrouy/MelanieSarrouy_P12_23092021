@@ -1,12 +1,25 @@
+// IMPORTS // ______________________________________________________________
+
 import React from 'react'
+// components imports
+import Button from './Button'
+// styles imports
 import {
   AsideWrapper,
   NavContainer,
   UlContainer,
   Copyright
 } from '../styles/components/aside'
-import Button from './Button'
+// datas imports
 import { icons } from '../datas/icons'
+
+// JSX // _________________________________________________________________
+
+/**
+ * Aside's component to display secondary navigation
+ * @name Aside
+ * @returns {JSX}
+ */
 
 const Aside = () => {
   return (
@@ -24,5 +37,7 @@ const Aside = () => {
     </AsideWrapper>
   )
 }
+
+// EXPORT // ______________________________________________________________
 
 export default Aside

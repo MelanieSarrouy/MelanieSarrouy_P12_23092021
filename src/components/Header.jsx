@@ -9,6 +9,12 @@ import {
 } from '../styles/components/header'
 import NavBurger from './NavBurger'
 
+
+/**
+ * Component Header with main navigation
+ * @returns {JSX}
+ */
+
 const Header = () => {
 
   return (
