@@ -10,7 +10,7 @@ import User from './pages/User'
 import HomePage from './pages/HomePage'
 // styles imports
 import { GlobalStyle } from './styles/bases/bases'
-import { MainWrapper } from './styles/components/app'
+import { MainWrapper } from './styles/bases/app'
 
 // JSX // _________________________________________________________________
 

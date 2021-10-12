@@ -34,7 +34,7 @@ const NavBurger = () => {
             <StyledLink exact to="/">
               Accueil
             </StyledLink>
-            <StyledLink exact to="/user/:id">
+            <StyledLink exact to="/profil">
               Profil
             </StyledLink>
             <StyledLink exact to="/reglages">
