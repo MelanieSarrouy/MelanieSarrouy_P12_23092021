@@ -59,7 +59,7 @@ const CustomTooltip = ({ active, payload }) => {
  */
 
 const Activity = ({ id }) => {
-  const { data, isLoading, error } = useFetch(`${id}/activity`)
+  const { data, isLoading, error } = useFetch(`${id}/activity.json`)
   if (error) {
     return <Err>Oups, il y a un problème de chargement des données</Err>
   }

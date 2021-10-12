@@ -33,7 +33,7 @@ import { userMainData } from '../services/classModels/userMainData.js'
 const Profil = () => {
   const param = useParams()
   const userId = parseInt(param.id)
-  const { data, isLoading, error } = useFetch(`${userId}`)
+  const { data, isLoading, error } = useFetch(`${userId}.json`)
   if (error) {
     return <Err>Oups, il y a un problème d'authentification de l'utilisateur</Err>
   }

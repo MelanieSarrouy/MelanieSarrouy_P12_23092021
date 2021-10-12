@@ -56,7 +56,7 @@ const CustomTooltip = ({ active, payload }) => {
  */
 
 const Average = ({ id }) => {
-  const { data, isLoading, error } = useFetch(`${id}/average-sessions`)
+  const { data, isLoading, error } = useFetch(`${id}/average-sessions.json`)
   if (error) {
     return <Err>Oups, il y a un problème de chargement des données</Err>
   }

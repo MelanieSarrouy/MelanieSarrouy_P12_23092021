@@ -36,7 +36,7 @@ import { userMainData } from '../services/classModels/userMainData.js'
  */
 
 const Score = ({ id }) => {
-  const { data, isLoading, error } = useFetch(`${id}`)
+  const { data, isLoading, error } = useFetch(`${id}.json`)
   if (error) {
     return <Err>Oups, il y a un problème de chargement des données</Err>
   }

@@ -7,7 +7,7 @@ import PropTypes from 'prop-types'
 
 // HOOK // ______________________________________________________________
 
-axios.defaults.baseURL = 'http://localhost:3000/user/'
+axios.defaults.baseURL = './user/'
 
 /**
  * personnalized hook with Api's url in params for storing data fetched

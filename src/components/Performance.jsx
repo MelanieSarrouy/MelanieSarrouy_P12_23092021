@@ -32,7 +32,7 @@ import { userPerformance } from '../services/classModels/userPerformance'
  */
 
 const Performance = ({ id }) => {
-  const { data, isLoading, error } = useFetch(`${id}/performance`)
+  const { data, isLoading, error } = useFetch(`${id}/performance.json`)
   if (error) {
     return <Err>Oups, il y a un problème de chargement des données</Err>
   }
