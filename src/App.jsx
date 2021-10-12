@@ -6,7 +6,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Aside from './components/Aside'
 import Header from './components/Header'
 import NotFound from './pages/NotFound'
-import Profil from './pages/Profil'
+import User from './pages/User'
 import HomePage from './pages/HomePage'
 // styles imports
 import { GlobalStyle } from './styles/bases/bases'
@@ -30,7 +30,8 @@ const App = () => {
         <section>
           <Switch>
             <Route exact path="/" component={HomePage} />
-            <Route path="/user/:id?" component={Profil} />
+            <Route exact path="/user/:id?" component={User} />
+            <Route path="/profil" component={NotFound} />
             <Route path="/reglages" component={NotFound} />
             <Route path="/communaute" component={NotFound} />
             <Route component={NotFound} />

@@ -33,7 +33,7 @@ const Header = () => {
         <StyledLink exact to="/" activeClassName="something">
           Accueil
         </StyledLink>
-        <StyledLink exact to="/user/:id" activeClassName="something">
+        <StyledLink exact to="/profil" activeClassName="something">
           Profil
         </StyledLink>
         <StyledLink exact to="/reglages" activeClassName="something">

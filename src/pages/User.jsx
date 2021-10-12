@@ -16,7 +16,7 @@ import {
   Charts,
   ChartsContainer,
   LittleCharts
-} from '../styles/pages/profil.js'
+} from '../styles/pages/user.js'
 import { Err } from '../styles/bases/error'
 // imports API's datas fetched and modeling classes
 import { useFetch } from '../services/API.js'
@@ -30,7 +30,7 @@ import { userMainData } from '../services/classModels/userMainData.js'
  * @returns {JSX}
  */
 
-const Profil = () => {
+const User = () => {
   const param = useParams()
   const userId = parseInt(param.id)
   const { data, isLoading, error } = useFetch(`${userId}`)
@@ -68,4 +68,4 @@ const Profil = () => {
 
 // EXPORT // ______________________________________________________________
 
-export default Profil
+export default User

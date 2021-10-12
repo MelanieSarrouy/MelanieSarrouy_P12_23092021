@@ -1,7 +1,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/818fd35c-fd6f-424a-817d-b3ba8b90f30c/deploy-status)](https://app.netlify.com/sites/sportseep12/deploys)
 
 [SportSee](https://sportseep12.netlify.app/)
-![enter image description here](https://media.giphy.com/media/iFmw13LV1hHhViPPWz/giphy.gif)
+![enter image description here](https://media.giphy.com/media/hUL5gdlvDgtRbOElZS/giphy.gif)
 # SPORTSEE : Develop an analytics dashboard with React
 
 ### P12 - OpenClassrooms
@@ -11,13 +11,13 @@ This page allows the user to track the number of sessions completed as well as t
 
   
 Goals:
-
 - feching data from API
 - Creation and display charts
 - Logical separation of code into reusable components
   
 
 [Maquette](https://www.figma.com/file/BMomGVZqLZb811mDMShpLu/UI-design-Sportify-FR)
+
 [Kanban](https://www.notion.so/Tableau-de-bord-SportSee-6686aa4b5f44417881a4884c9af5669e)  
   
 
@@ -30,7 +30,7 @@ Goals:
 -  [recharts](https://recharts.org/en-US/) v2.1.4
 -  [prop-types](https://www.npmjs.com/package/prop-types) v15.7.2
 -  [Styled-Components](https://styled-components.com/) v5.3.1
-- Recommended IDE : [Visual Studio code](https://code.visualstudio.com/)
+-  Recommended IDE : [Visual Studio code](https://code.visualstudio.com/)
   
 
 ## 2. Prerequisites
