@@ -54,7 +54,7 @@ const NutrientsTags = ({ keyData }) => {
 // PROPTYPES // ___________________________________________________________
 
 NutrientsTags.propTypes = {
-  keyData: PropTypes.object.isRequired,
+  keyData: PropTypes.objectOf(PropTypes.number).isRequired,
 }
 
 // EXPORT // ______________________________________________________________
