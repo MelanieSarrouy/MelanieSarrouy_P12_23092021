@@ -16,7 +16,7 @@ import {
   Charts,
   ChartsContainer,
   LittleCharts
-} from '../styles/pages/profil.js'
+} from '../styles/pages/user.js'
 import { Err } from '../styles/bases/error'
 // imports API's datas fetched and modeling classes
 import { useFetch } from '../services/API.js'
