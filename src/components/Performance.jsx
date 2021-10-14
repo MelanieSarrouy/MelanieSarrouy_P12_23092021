@@ -8,7 +8,7 @@ import {
   Radar,
   RadarChart,
   PolarGrid,
-  PolarAngleAxis,
+  PolarAngleAxis
 } from 'recharts'
 // components imports
 import Loader from './Loader'
@@ -42,6 +42,8 @@ const Performance = ({ id }) => {
     const performanceDatas = new userPerformance(data)
     const kinds = performanceDatas.kind
     const perf = performanceDatas.data
+    let datas = []
+    perf.map((p) => datas.unshift(p))
 
     return (
       <RadarContainer>
@@ -51,12 +53,11 @@ const Performance = ({ id }) => {
             cx="50%"
             cy="50%"
             innerRadius="10%"
-            outerRadius="70%"
-            data={perf}
+            outerRadius="80%"
+            data={datas}
             width={260}
             height={263}
-            startAngle={-150}
-            endAngle={210}
+            margin={{ top: 10, right: 20, left: 20, bottom: 10 }}
           >
             <PolarGrid radialLines={false} />
             <PolarAngleAxis
@@ -65,13 +66,14 @@ const Performance = ({ id }) => {
               tickFormatter={(kind) => convertKind(kind, kinds)}
               tick={{ fontSize: 12 }}
               stroke="white"
-              dy={5}
+              dy={4}
             />
             <Radar
               name="Performance"
               dataKey="value"
               fill={colors.primary}
               fillOpacity={0.7}
+              margin={{ top: 10, right: 20, left: 20, bottom: 10 }}
             />
           </RadarChart>
         </ResponsiveContainer>

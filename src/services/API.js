@@ -4,14 +4,13 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 
-
 // HOOK // ______________________________________________________________
 
 axios.defaults.baseURL = 'http://localhost:3000/user/'
 
 /**
  * personnalized hook with Api's url in params for storing data fetched
- * @param {string} url 
+ * @param {string} url
  * @returns {object}
  */
 
@@ -44,5 +43,5 @@ export function useFetch(url) {
 // PROPTYPES // ___________________________________________________________
 
 useFetch.propTypes = {
-  url: PropTypes.string
+  url: PropTypes.string,
 }

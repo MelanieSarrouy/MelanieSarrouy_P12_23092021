@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
 
-
 export const GlobalStyle = createGlobalStyle`
 
 /* Styles principaux */
@@ -53,6 +52,9 @@ h1 {
   clip:rect(0,0,0,0);
   white-space:nowrap;
   border:0
+}
+.recharts-polar-angle-axis-tick {
+  padding: 1rem;
 }
 li {
   list-style: none;
