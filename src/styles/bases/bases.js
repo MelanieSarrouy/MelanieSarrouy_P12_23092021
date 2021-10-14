@@ -1,6 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
 
-
 export const GlobalStyle = createGlobalStyle`
 
 /* Styles principaux */
@@ -27,7 +26,6 @@ body {
   @include respond-to(small-screen) {
     padding: 1.25rem;  
   }
-
 }
 img {
   width: 100%;

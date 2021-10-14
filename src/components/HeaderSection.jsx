@@ -2,7 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-// components imports
+// styles imports
 import { Welcome, FirstName } from '../styles/components/headerSection'
 
 // JSX // _________________________________________________________________
