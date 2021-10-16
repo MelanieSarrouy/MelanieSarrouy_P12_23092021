@@ -17,6 +17,7 @@ export const MainHomePage = styled.main`
   background-color: ${colors.textDark};
   padding: 3rem;
   border-radius: 0.35rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 `
 export const ButtonsWrapper = styled.div`
   display: flex;
